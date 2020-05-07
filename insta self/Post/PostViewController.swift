@@ -35,6 +35,14 @@ extension PostViewController: HeaderViewDelegate {
         animatorManager.navigationType = .slide_pop
     }
     func touchedRightButton(_ sender: UIButton) {
+        let postModel: PostModel = PostModel()
+        if let text = mainView.textField.text{
+            postModel.description = text
+        }
+        PostModel.create(request: postModel){
+            //成功したときの処理
+            
+        }
         let homeViewController = HomeViewController()
         navigationController?.pushViewController(homeViewController, animated: true)
         animatorManager.navigationType = .slide_push

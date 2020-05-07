@@ -12,6 +12,8 @@ import PGFramework
 class DetailViewController: BaseViewController {
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var mainView: DetailMainView!
+    
+    var postModel: PostModel = PostModel()
 }
 // MARK: - Life cycle
 extension DetailViewController {
@@ -25,6 +27,7 @@ extension DetailViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        giveModel()
     }
 }
 // MARK: - Protocol
@@ -36,6 +39,7 @@ extension DetailViewController: HeaderViewDelegate {
     }
     func touchedRightButton(_ sender: UIButton) {
         let editViewController = EditViewController()
+        editViewController.postModel = postModel
         editViewController.modalPresentationStyle = .fullScreen
         present(editViewController, animated: true, completion: nil)
     }
@@ -49,6 +53,10 @@ extension DetailViewController {
         headerView.setRight(text: "Edit")
         headerView.setLeft(text: "キャンセル")
     }
+    func giveModel(){
+        mainView.getModel(postModel: postModel)
+    }
+
 }
 
 

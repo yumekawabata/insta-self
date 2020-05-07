@@ -28,6 +28,9 @@
                     <constraint firstAttribute="bottomMargin" secondItem="7Sk-IN-VEo" secondAttribute="bottom" constant="100" id="eua-V1-flk"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="7Sk-IN-VEo" id="InB-fU-I6m"/>
+            </connections>
             <point key="canvasLocation" x="65.217391304347828" y="90.066964285714278"/>
         </tableViewCell>
     </objects>
