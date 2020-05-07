@@ -34,6 +34,11 @@ extension DetailViewController: HeaderViewDelegate {
         navigationController?.pushViewController(homeViewContoroller, animated: true)
         animatorManager.navigationType = .slide_pop
     }
+    func touchedRightButton(_ sender: UIButton) {
+        let editViewController = EditViewController()
+        editViewController.modalPresentationStyle = .fullScreen
+        present(editViewController, animated: true, completion: nil)
+    }
 }
 // MARK: - method
 extension DetailViewController {
