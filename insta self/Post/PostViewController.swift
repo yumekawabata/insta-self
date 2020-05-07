@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  PostViewController.swift
 //  insta self
 //
 //  Created by ASW-研修３ on 2020/05/07.
@@ -9,12 +9,12 @@
 import UIKit
 import PGFramework
 // MARK: - Property
-class DetailViewController: BaseViewController {
+class PostViewController: BaseViewController {
     @IBOutlet weak var headerView: HeaderView!
-    @IBOutlet weak var mainView: DetailMainView!
+    @IBOutlet weak var mainView: PostMainView!
 }
 // MARK: - Life cycle
-extension DetailViewController {
+extension PostViewController {
     override func loadView() {
         super.loadView()
         setDelegate()
@@ -28,21 +28,26 @@ extension DetailViewController {
     }
 }
 // MARK: - Protocol
-extension DetailViewController: HeaderViewDelegate {
+extension PostViewController: HeaderViewDelegate {
     func touchedLeftButton(_ sender: UIButton) {
-        let homeViewContoroller = HomeViewController()
-        navigationController?.pushViewController(homeViewContoroller, animated: true)
+        let homeViewController = HomeViewController()
+        navigationController?.pushViewController(homeViewController, animated: true)
         animatorManager.navigationType = .slide_pop
+    }
+    func touchedRightButton(_ sender: UIButton) {
+        let homeViewController = HomeViewController()
+        navigationController?.pushViewController(homeViewController, animated: true)
+        animatorManager.navigationType = .slide_push
     }
 }
 // MARK: - method
-extension DetailViewController {
+extension PostViewController {
     func setDelegate(){
         headerView.delegate = self
     }
     func setHeaderView(){
-        headerView.setRight(text: "Edit")
         headerView.setLeft(text: "キャンセル")
+        headerView.setRight(text: "シェア")
     }
 }
 
