@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="365" id="MNE-39-jxe" customClass="HomeMainTableViewCell" customModule="insta_self" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="365"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MNE-39-jxe" id="zCL-Tj-zw4">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="365"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sk-IN-VEo">
+                        <rect key="frame" x="186" y="111" width="42" height="143"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7Sk-IN-VEo" firstAttribute="centerX" secondItem="zCL-Tj-zw4" secondAttribute="centerX" id="4fC-zX-XYc"/>
+                    <constraint firstItem="7Sk-IN-VEo" firstAttribute="top" secondItem="zCL-Tj-zw4" secondAttribute="topMargin" constant="100" id="9sW-xd-fH8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7Sk-IN-VEo" secondAttribute="bottom" constant="100" id="eua-V1-flk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="65.217391304347828" y="90.066964285714278"/>
+        </tableViewCell>
+    </objects>
+</document>
