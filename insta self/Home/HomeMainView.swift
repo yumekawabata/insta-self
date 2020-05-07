@@ -9,6 +9,7 @@
 import UIKit
 import PGFramework
 protocol HomeMainViewDelegate: NSObjectProtocol{
+    func didSelectRowAt()
 }
 extension HomeMainViewDelegate {
 }
@@ -37,12 +38,21 @@ extension HomeMainView: UITableViewDataSource {
             return UITableViewCell() }
         return cell
     }
-    
 }
+
+extension HomeMainView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let delegate = delegate{
+            delegate.didSelectRowAt()
+        }
+    }
+}
+
 // MARK: - method
 extension HomeMainView {
     func setDelegate(){
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 

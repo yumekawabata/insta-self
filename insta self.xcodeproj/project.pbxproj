@@ -18,6 +18,10 @@
 		3F9908742463A00400803E73 /* HomeMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9908722463A00400803E73 /* HomeMainView.xib */; };
 		3F9908782463A30400803E73 /* HomeMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9908762463A30400803E73 /* HomeMainTableViewCell.swift */; };
 		3F9908792463A30400803E73 /* HomeMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9908772463A30400803E73 /* HomeMainTableViewCell.xib */; };
+		3F99087D2463A52800803E73 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99087B2463A52800803E73 /* DetailViewController.swift */; };
+		3F99087E2463A52800803E73 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F99087C2463A52800803E73 /* DetailViewController.xib */; };
+		3F9908812463A54900803E73 /* DetailMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99087F2463A54900803E73 /* DetailMainView.swift */; };
+		3F9908822463A54900803E73 /* DetailMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9908802463A54900803E73 /* DetailMainView.xib */; };
 		8BA3EBFD4B169BDFD1B69541 /* Pods_insta_self.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174980AFB736EE326EDB9611 /* Pods_insta_self.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,10 @@
 		3F9908722463A00400803E73 /* HomeMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMainView.xib; sourceTree = "<group>"; };
 		3F9908762463A30400803E73 /* HomeMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainTableViewCell.swift; sourceTree = "<group>"; };
 		3F9908772463A30400803E73 /* HomeMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMainTableViewCell.xib; sourceTree = "<group>"; };
+		3F99087B2463A52800803E73 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3F99087C2463A52800803E73 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		3F99087F2463A54900803E73 /* DetailMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMainView.swift; sourceTree = "<group>"; };
+		3F9908802463A54900803E73 /* DetailMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMainView.xib; sourceTree = "<group>"; };
 		B17979201F64937458B48081 /* Pods-insta self.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta self.release.xcconfig"; path = "Target Support Files/Pods-insta self/Pods-insta self.release.xcconfig"; sourceTree = "<group>"; };
 		C9C0364F9CBFB39426D760DA /* Pods-insta self.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta self.debug.xcconfig"; path = "Target Support Files/Pods-insta self/Pods-insta self.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +81,7 @@
 		3F99085724639BF000803E73 /* insta self */ = {
 			isa = PBXGroup;
 			children = (
+				3F99087A2463A51800803E73 /* Detail */,
 				3F99086C24639FAD00803E73 /* Home */,
 				3F99085824639BF000803E73 /* AppDelegate.swift */,
 				3F99085A24639BF000803E73 /* SceneDelegate.swift */,
@@ -103,6 +112,17 @@
 				3F9908772463A30400803E73 /* HomeMainTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		3F99087A2463A51800803E73 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3F99087B2463A52800803E73 /* DetailViewController.swift */,
+				3F99087C2463A52800803E73 /* DetailViewController.xib */,
+				3F99087F2463A54900803E73 /* DetailMainView.swift */,
+				3F9908802463A54900803E73 /* DetailMainView.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		473303ACB565E807585378F4 /* Frameworks */ = {
@@ -184,9 +204,11 @@
 			files = (
 				3F99086524639BF300803E73 /* LaunchScreen.storyboard in Resources */,
 				3F9908792463A30400803E73 /* HomeMainTableViewCell.xib in Resources */,
+				3F99087E2463A52800803E73 /* DetailViewController.xib in Resources */,
 				3F9908742463A00400803E73 /* HomeMainView.xib in Resources */,
 				3F99086224639BF300803E73 /* Assets.xcassets in Resources */,
 				3F99086024639BF000803E73 /* Main.storyboard in Resources */,
+				3F9908822463A54900803E73 /* DetailMainView.xib in Resources */,
 				3F99087024639FB900803E73 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,9 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9908812463A54900803E73 /* DetailMainView.swift in Sources */,
 				3F99085924639BF000803E73 /* AppDelegate.swift in Sources */,
 				3F99085B24639BF000803E73 /* SceneDelegate.swift in Sources */,
 				3F9908732463A00400803E73 /* HomeMainView.swift in Sources */,
+				3F99087D2463A52800803E73 /* DetailViewController.swift in Sources */,
 				3F9908782463A30400803E73 /* HomeMainTableViewCell.swift in Sources */,
 				3F99086F24639FB900803E73 /* HomeViewController.swift in Sources */,
 			);

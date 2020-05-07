@@ -17,6 +17,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     override func loadView() {
         super.loadView()
+        setDelegate()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,20 @@ extension HomeViewController {
     }
 }
 // MARK: - Protocol
-extension HomeViewController {
+extension HomeViewController: HomeMainViewDelegate {
+    func didSelectRowAt() {
+        let detailViewController = DetailViewController ()
+            navigationController?.pushViewController(detailViewController, animated: true)
+            animatorManager.navigationType = .pop
+
+    }
+    
 }
 // MARK: - method
 extension HomeViewController {
+    func setDelegate(){
+        mainView.delegate = self
+    }
 }
 
 
