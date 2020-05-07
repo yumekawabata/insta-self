@@ -17,6 +17,8 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     override func loadView() {
         super.loadView()
+        setHeaderView()
+        setDelegate()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +28,30 @@ extension HomeViewController {
     }
 }
 // MARK: - Protocol
-extension HomeViewController {
+extension HomeViewController: HomeMainViewDelegate {
+    func didSelectRowAt() {
+        let detailViewController = DetailViewController ()
+            navigationController?.pushViewController(detailViewController, animated: true)
+        animatorManager.navigationType = .slide_push
+
+    }
+}
+extension HomeViewController:HeaderViewDelegate {
+    func touchedRightButton(_ sender: UIButton) {
+        let postViewController = PostViewController()
+        navigationController?.pushViewController(postViewController, animated: true)
+        animatorManager.navigationType = .slide_push
+    }
 }
 // MARK: - method
 extension HomeViewController {
+    func setDelegate(){
+        headerView.delegate = self
+        mainView.delegate = self
+    }
+    func setHeaderView(){
+        headerView.setRight(text: "投稿")
+    }
 }
 
 

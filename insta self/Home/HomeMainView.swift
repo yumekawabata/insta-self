@@ -9,6 +9,7 @@
 import UIKit
 import PGFramework
 protocol HomeMainViewDelegate: NSObjectProtocol{
+    func didSelectRowAt()
 }
 extension HomeMainViewDelegate {
 }
@@ -21,12 +22,37 @@ class HomeMainView: BaseView {
 extension HomeMainView {
     override func awakeFromNib() {
         super.awakeFromNib()
+        setDelegate()
+        
+        loadTableViewCellFromXib(tableView: tableView, cellName: "HomeMainTableViewCell")
     }
 }
 // MARK: - Protocol
-extension HomeMainView {
+extension HomeMainView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeMainTableViewCell", for: indexPath)as? HomeMainTableViewCell else {
+            return UITableViewCell() }
+        return cell
+    }
 }
+
+extension HomeMainView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let delegate = delegate{
+            delegate.didSelectRowAt()
+        }
+    }
+}
+
 // MARK: - method
 extension HomeMainView {
+    func setDelegate(){
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
 }
 
