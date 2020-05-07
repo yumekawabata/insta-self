@@ -26,7 +26,7 @@
                     <rect key="frame" x="100" y="478" width="214" height="30"/>
                     <state key="normal" title="投稿を削除"/>
                     <connections>
-                        <action selector="touchedButton:" destination="-1" eventType="touchUpInside" id="xUK-e0-nTW"/>
+                        <action selector="touchedDeleteButton:" destination="-1" eventType="touchUpInside" id="8zB-NM-kEx"/>
                     </connections>
                 </button>
             </subviews>

@@ -33,16 +33,31 @@ extension EditViewController {
 // MARK: - Protocol
 extension EditViewController: HeaderViewDelegate {
     func touchedRightButton(_ sender: UIButton) {
-        //TODO: UpdateFunction
-        dismiss(animated: true, completion: nil)
+        if let text = mainView.textField.text{
+            postModel.description = text}
+        PostModel.update(request: postModel) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     func touchedLeftButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension EditViewController: EditMainViewDelegate {
+    func touchedDeleteButton() {
+        PostModel.delete(id: postModel.id) {
+            self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
+}
 // MARK: - method
 extension EditViewController {
     func setDelegate(){
+        mainView.delegate = self
         headeView.delegate = self
     }
     func setHeaderView(){
