@@ -15,6 +15,7 @@ extension PostMainViewDelegate {
 // MARK: - Property
 class PostMainView: BaseView {
     weak var delegate: PostMainViewDelegate? = nil
+    @IBOutlet weak var textField: UITextField!
 }
 // MARK: - Life cycle
 extension PostMainView {

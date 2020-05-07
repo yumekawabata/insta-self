@@ -12,6 +12,8 @@ import PGFramework
 class EditViewController: BaseViewController {
     @IBOutlet weak var mainView: EditMainView!
     @IBOutlet weak var headeView: HeaderView!
+    
+        var postModel: PostModel = PostModel()
 }
 // MARK: - Life cycle
 extension EditViewController {
@@ -25,6 +27,7 @@ extension EditViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        giveModel()
     }
 }
 // MARK: - Protocol
@@ -45,6 +48,9 @@ extension EditViewController {
     func setHeaderView(){
         headeView.setLeft(text: "キャンセル")
         headeView.setRight(text: "完了")
+    }
+    func giveModel(){
+        mainView.updateView(postModel: postModel)
     }
 }
 

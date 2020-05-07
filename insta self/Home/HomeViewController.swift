@@ -12,6 +12,8 @@ import PGFramework
 class HomeViewController: BaseViewController {
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var mainView: HomeMainView!
+    
+    var postModels: [PostModel] = [PostModel]()
 }
 // MARK: - Life cycle
 extension HomeViewController {
@@ -19,22 +21,25 @@ extension HomeViewController {
         super.loadView()
         setHeaderView()
         setDelegate()
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getModel()
     }
 }
 // MARK: - Protocol
 extension HomeViewController: HomeMainViewDelegate {
-    func didSelectRowAt() {
-        let detailViewController = DetailViewController ()
-            navigationController?.pushViewController(detailViewController, animated: true)
-        animatorManager.navigationType = .slide_push
-
+    func didSelectRowAt(indexPath: IndexPath) {
+              let detailViewController = DetailViewController ()
+        detailViewController.postModel = postModels[indexPath.row]
+              navigationController?.pushViewController(detailViewController, animated: true)
+          animatorManager.navigationType = .slide_push
     }
+ 
 }
 extension HomeViewController:HeaderViewDelegate {
     func touchedRightButton(_ sender: UIButton) {
@@ -51,6 +56,16 @@ extension HomeViewController {
     }
     func setHeaderView(){
         headerView.setRight(text: "投稿")
+    }
+    func getModel(){
+        PostModel.reads { (postModels) in
+            self.mainView.getModel(postModels: postModels)
+            self.postModels = postModels
+//            for postModel in postModels {
+//                print("DESC: ",postModel.description)
+//            }
+        }
+        
     }
 }
 

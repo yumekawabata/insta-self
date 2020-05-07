@@ -32,5 +32,8 @@ extension EditMainView {
 }
 // MARK: - method
 extension EditMainView {
+    func updateView(postModel: PostModel){
+        textField.text = postModel.description
+    }
 }
 

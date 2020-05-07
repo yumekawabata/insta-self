@@ -7,24 +7,70 @@
 //
 
 import UIKit
+import PGFramework
+import FirebaseDatabase
 
-class PostModel: UIViewController {
+class PostModel{
+    var description: String = String()
+    var id: String = String()
+    fileprivate static let PATH: String = "Post"
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+extension PostModel{
+    static func parse(data: [String: Any]) -> PostModel {
+        let model = PostModel()
+        if let description = data["description"] as? String{model.description = description}
+        if let id = data ["id"]as? String {
+            model.id = id
+        }
+        return model
+    }
+    static func setParameter(request: PostModel) -> [String:Any]{
+    var parameter: [String: Any] = [:]
+        parameter["description"] = request.description
+        parameter["id"] = request.id
+        return parameter
+    }
+}
 
-        // Do any additional setup after loading the view.
+
+//-C
+extension PostModel{
+    static func create(request: PostModel,success: @escaping() -> Void){
+        let parameter = setParameter(request: request)
+        let dbRef = Database.database().reference().child(PATH).childByAutoId()
+        dbRef.setValue(parameter)
+        success()
+    }
+}
+
+
+extension PostModel{
+    static func reads(success:@escaping ([PostModel]) -> Void) {
+        let dbRef = Database.database().reference().child(PATH)
+        dbRef.observe(.value, with: { snapshot in
+            var models: [PostModel] = [PostModel]()
+            for item in (snapshot.children) {
+                let snapshot = item as! DataSnapshot
+                let data = snapshot.value as! [String: Any]
+                let model: PostModel = parse(data: data)
+                model.id = snapshot.key
+                models.append(model)
+            }
+            success(models)
+        })
     }
     
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//-U
+extension PostModel{
+    
+}
 
+
+//-D
+extension PostModel{
+    
 }

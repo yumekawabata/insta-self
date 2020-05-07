@@ -15,6 +15,7 @@ extension DetailMainViewDelegate {
 // MARK: - Property
 class DetailMainView: BaseView {
     weak var delegate: DetailMainViewDelegate? = nil
+    @IBOutlet weak var label: UILabel!
 }
 // MARK: - Life cycle
 extension DetailMainView {
@@ -27,5 +28,9 @@ extension DetailMainView {
 }
 // MARK: - method
 extension DetailMainView {
+    func getModel(postModel: PostModel){
+        label.text = postModel.description
+        
+    }
 }
 
