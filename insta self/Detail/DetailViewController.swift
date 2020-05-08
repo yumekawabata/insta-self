@@ -27,6 +27,7 @@ extension DetailViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getModel()
         giveModel()
     }
 }
@@ -55,6 +56,15 @@ extension DetailViewController {
     }
     func giveModel(){
         mainView.getModel(postModel: postModel)
+    }
+    func getModel(){
+        PostModel.readAt(id: postModel.id, success: { (postModel) in
+            self.postModel = postModel
+        }) {
+            let homeViewController = HomeViewController()
+            self.navigationController?.pushViewController(homeViewController, animated: true)
+            self.animatorManager.navigationType = .slide_pop
+        }
     }
 
 }

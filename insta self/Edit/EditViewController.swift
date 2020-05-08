@@ -51,9 +51,7 @@ extension EditViewController: EditMainViewDelegate {
             }
         }
     }
-    
-    
-}
+
 // MARK: - method
 extension EditViewController {
     func setDelegate(){

@@ -37,12 +37,13 @@ extension PostModel{
 //-C
 extension PostModel{
     static func create(request: PostModel,success: @escaping() -> Void){
-        let parameter = setParameter(request: request)
         let dbRef = Database.database().reference().child(PATH).childByAutoId()
-        dbRef.setValue(parameter)
         if let key = dbRef.key{
             request.id = key
         }
+        let parameter = setParameter(request: request)
+        dbRef.setValue(parameter)
+
         success()
     }
 }
@@ -63,10 +64,14 @@ extension PostModel{
             success(models)
         })
     }
-    static func readAt(id: String,success:@escaping (PostModel) -> Void){
+    static func readAt(id: String,success:@escaping (PostModel) -> Void,failure: @escaping() -> Void){
         let dbRef = Database.database().reference().child(PATH).child(id)
         dbRef.observe(.value) { (snapshot) in
-            <#code#>
+            guard let data = snapshot.value as? [String: Any] else {
+                failure()
+                return}
+            let model: PostModel = parse(data: data)
+            success(model)
         }
         
     }
